@@ -1,0 +1,11 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/*
+ * USART1（PA9 TX / PA10 RX）：调试日志（zephyr,console）。
+ * USB CDC 专用于 CAN 帧转发，不走控制台。
+ */
+&usart1 {
+	pinctrl-0 = <&usart1_tx_pa9 &usart1_rx_pa10>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+	status = "okay";
+};

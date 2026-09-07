@@ -1,0 +1,5 @@
+# Copyright (c) 2016 Linaro Limited.
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_ST_G474_BOARD
+	select SOC_STM32G474XX

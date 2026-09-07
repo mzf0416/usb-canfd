@@ -1,0 +1,6 @@
+board:
+  name: st_g474_board
+  full_name: STM32G474 Custom Board
+  vendor: st
+  socs:
+    - name: stm32g474xx

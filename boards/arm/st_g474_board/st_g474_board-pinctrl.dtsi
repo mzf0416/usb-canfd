@@ -1,0 +1,4 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+
+/* 引入 STM32G474 官方引脚复用定义（100pin V 封装） */
+#include <st/g4/stm32g474v(b-c-e)tx-pinctrl.dtsi>

@@ -1,0 +1,28 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/*
+ * STM32G474VET6 自定义板 — USB-CANFD 精简配置。
+ * 仅启用：FDCAN1、USB FS CDC ACM、USART1 调试口。
+ */
+/dts-v1/;
+#include <st/g4/stm32g474Xe.dtsi>
+#include "st_g474_board-pinctrl.dtsi"
+#include "clock.dtsi"
+#include "can.dtsi"
+#include "uart.dtsi"
+#include "usb.dtsi"
+
+/ {
+	model = "STM32G474VET6 USB-CANFD board";
+	compatible = "st,st_g474_board";
+
+	aliases {
+		canbus = &fdcan1;
+	};
+
+	chosen {
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,console = &usart1;
+		zephyr,canbus = &fdcan1;
+	};
+};

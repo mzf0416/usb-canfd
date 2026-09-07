@@ -1,0 +1,31 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/*
+ * 时钟：HSE 8 MHz → PLL 170 MHz SYSCLK；PLLQ 170 MHz 给 FDCAN；
+ * USB FS 48 MHz 域用 HSI48（PLLQ 已被 FDCAN 占用）。
+ */
+&clk_hsi48 {
+	status = "okay";
+};
+
+&clk_hse {
+	clock-frequency = <DT_FREQ_M(8)>;
+	status = "okay";
+};
+
+&pll {
+	div-m = <2>;
+	mul-n = <85>;
+	div-p = <7>;
+	div-q = <2>;
+	div-r = <2>;
+	clocks = <&clk_hse>;
+	status = "okay";
+};
+
+&rcc {
+	clocks = <&pll>;
+	clock-frequency = <DT_FREQ_M(170)>;
+	ahb-prescaler = <1>;
+	apb1-prescaler = <1>;
+	apb2-prescaler = <1>;
+};

@@ -1,0 +1,16 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/*
+ * FDCAN1（PD0 RX / PD1 TX）：USB-CANFD 唯一 CAN 通道。
+ * 默认与 Motorevo 电机总线一致：仲裁 1 Mbps / 数据 5 Mbps。
+ */
+&fdcan1 {
+	clocks = <&rcc STM32_CLOCK(APB1, 25)>,
+		 <&rcc STM32_SRC_PLL_Q FDCAN_SEL(1)>;
+	pinctrl-0 = <&fdcan1_rx_pd0 &fdcan1_tx_pd1>;
+	pinctrl-names = "default";
+	bitrate = <1000000>;
+	sample-point = <823>;
+	bitrate-data = <5000000>;
+	sample-point-data = <765>;
+	status = "okay";
+};
